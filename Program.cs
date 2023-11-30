@@ -132,6 +132,38 @@ double mininarr = FindMin(collect);
 FindSubtraction(mininarr,maxinarr);
 */
 
+// ЗАДАЧА 4.Дано натуральное число в диапазоне от 1 до 100 000. Создайте массив, состоящий из цифр этого числа.
+Старший разряд числа должен располагаться на 0-м индексе массива, младший – на последнем. Рамер массива равен количеству цифр.
+ int[] FillArray(int size, int numero)
+{
+int[] array = new int[size];
+int count = size;
+int position = 0;
+while(count > 1)
+{
+    int arraymaker = Convert.ToInt32(Math.Pow(10, count - 1));
+    array[position] =  numero/ arraymaker;
+    count = count - 1;
+    numero = numero - (arraymaker * array[position]);
+    position++;
+}
+array[position] = numero%10;
+return array;
+}
+void PrintArr(int[] numbers)
+{
+    for(int index = 0; index < numbers.Length; index ++)
+    {
+    Console.Write(numbers[index] + " ");
+    }
+    Console.WriteLine();
+}
+int number = new Random().Next(1, 100000);
+Console.WriteLine(number);
+int length = number.ToString().Length;
+int[] arr = FillArray(length, number);
+PrintArr(arr);
+
 
 
 
