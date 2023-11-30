@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-int[] FillArray(int size)
+﻿int[] FillArray(int size)
 {
 int[] array = new int[size];
 for (int i = 0; i < array.Length; i ++)
@@ -17,12 +15,12 @@ void PrintArr(int[] numbers)
     }
     Console.WriteLine();
 }
-void FindAmmount(int[] collection, int count1, int count2)
+void FindAmmount(int[] collection)
 {
     int ammount = 0;
     foreach(int element in collection)
     {
-        if(element > count1 && element < count2)
+        if(element % 2 == 0)
         {
               ammount++;
         }
@@ -31,10 +29,8 @@ void FindAmmount(int[] collection, int count1, int count2)
 }
 int sizeArr = 10;
 int[] arr = FillArray(sizeArr);
-int count1 = Convert.ToInt32(20);
-int count2= Convert.ToInt32(90);
 PrintArr(arr);
-FindAmmount(arr, count1, count2);
+FindAmmount(arr);
 
 
 
